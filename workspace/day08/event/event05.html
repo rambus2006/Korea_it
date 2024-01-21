@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>체크박스</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <label><input type="checkbox" value="선택1" />선택1</label>
+      <label><input type="checkbox" value="선택2" />선택2</label>
+      <label><input type="checkbox" value="선택3" />선택3</label>
+      <p id="result"></p>
+    </div>
+  </body>
+  <script>
+    const checkboxes = document.querySelectorAll("input[type='checkbox']");
+    const result = document.querySelector("#result");
+    NodeList.prototype.filter = Array.prototype.filter;
+    console.log(result);
+
+    checkboxes.forEach((checkbox) => {
+      checkbox.addEventListener("click", (e) => {
+        if (e.target.checked) {
+          const target = e.target;
+          const strong = document.createElement("strong");
+
+          strong.innerText = e.target.value;
+          strong.style.marginRight = "4px";
+          result.appendChild(strong);
+
+        } else {
+          // 다음주에 하는 마무리하고 git, git hub  
+            const strongs = document.querySelectorAll("#result strong");
+            const target = strongs.filter((stong) => {
+                storng.innerText === e.target.value
+            })[0];
+          result.removeChild(target);
+
+        }
+      });
+    });
+  </script>
+</html>

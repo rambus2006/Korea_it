@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>체크박스 전체 동의</title>
+</head>
+<body>
+    <!-- *DOM 트리 1개 (form 태그) - 기본적인 걸 잘 챙기자 -->
+    <form action="" name="myForm">
+        <div>
+            <label>
+                전체동의 
+                <input type="checkbox" name="all" class="all">
+            </label>
+        </div>
+        <div>
+            <label>
+                서비스 이용약관 동의  
+                <input type="checkbox" name="term1" class="term">
+            </label>
+        </div>
+        <div>
+            <label>
+                광고 수신 동의 
+                <input type="checkbox" name="term2" class="term">
+            </label>
+        </div>
+        <div>
+            <label>
+                개인 정보 이용약관 동의 
+                <input type="checkbox" name="term3" class="term">
+            </label>
+        </div>
+    </form>
+</body>
+<!-- 전체 동의  -->
+<script>
+// checkbox 가져온다. 1개, 3개
+// 이벤트 추가한다. 1개, 3개
+// 반복문 돌린다.
+// 체크 상태 확인해
+// 다 체크되면 전체동의 클릭하게만들면된다.
+
+const all = document.querySelector("input.all"); // console.log(all);
+const terms = document.querySelectorAll("input.term");
+NodeList.prototype.map = Array.prototype.map;
+
+all.addEventListener("click",()=>{
+    terms.forEach((term)=>{
+        term.checked = all.checked;
+        
+    })
+})
+
+terms.forEach((term)=>{
+    term.addEventListener("click",()=>{
+        all.checked = terms.map(()=>term.checked).filter((checked)=>checked).length ===3 //map 함수는 하나만 가져와도 새로운 배열을 만든다. 
+    })
+})
+</script>
+</html>

@@ -1,0 +1,20 @@
+.text{
+    font-size: 30px;
+}
+.image03{
+    opacity: 0;
+}
+.fade-up{
+    animation: fadeup 0.6s forwards;
+}
+@keyframes fadeup {
+    0%{
+        opacity: 0;
+        transform: translate(0,200px);
+    }
+    100%{
+        opacity: 1;
+        transform: translate(0,0);
+
+    }
+}
