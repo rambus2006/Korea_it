@@ -20,8 +20,13 @@ const printImages = async()=>{
     return urls;
 
 }
-printImages().then((urls)=>urls.forEach((url)=>{
-    wrapper.innerHTML +=`<img src="${url}">`;
-}))
+printImages()
+    .then((urls) => urls.slice(0,5))
+    .then((urls)=>{
+        urls.array.forEach((url) => {
+            return wrapper.innerHTML += `<img src="${url}">`;
+        })
+    })
+
 </script>
 </html>

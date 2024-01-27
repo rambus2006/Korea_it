@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <title>axios</title>
+    <!-- Axios cdn -->
+    <!-- cdn : 근처나라의 서버에서 통신 받아 스크립트로 사용하는 구조 -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    
+</body>
+<script>
+    // 요청의 객체를 담고 있다. 
+    //axios는 파싱과정을 자동으로 해준다. 
+    // axios({
+    //     method:'get',
+    //     url:'https://jsonplaceholder.typicode.com/users',
+    //     headers:{
+    //         'Content-Type':'allication/json'
+    //     }
+    // })
+    // .then((user) => user.data)
+    // .then(console.log)
+    //get요청을 할 때 축약형 사용이 가능하다. 
+    const getUsers = async()=>{
+        const response = axios.get('https://jsonplaceholder.typicode.com/users')
+        return response.data
+    }
+    getUsers().then(console.log)
+</script>
+</html>
