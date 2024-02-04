@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery이벤트2</title>
+</head>
+<body>
+    <!-- 
+        setTimeOut() : 몇 초 뒤에 함수를 실행하는 함수 
+        setInterval() : 몇 초마다 실행되는 함수 
+        clearInterval() : setInterval()을 중지시키는 함수 
+     -->
+     <div id="wrap">
+
+     </div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+    const $wrap = $('#wrap');
+    setTimeout(()=>{
+        $wrap.append('<strong>3초 뒤에 등장!</strong>')
+    },3000)
+    const appendChild = setInterval(()=>{
+        $wrap.append('<strong>1초 마다 자식요소를 추가!</strong>')
+    },1000)
+    setTimeout(()=>{
+        clearInterval(appendChild)
+    },10000)
+</script>
+</html>

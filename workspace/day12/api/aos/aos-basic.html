@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <title>Document</title>
+    <style>
+        .scroll{
+            height:200vh;
+        }
+        .content{
+            width:100px;
+            height: 100px;
+            background-color: orange;
+        }
+    </style>
+</head>
+<body>
+    <div class="scroll"></div>
+    <div class="content" data-aos="fade-right">컨텐츠1</div>
+    <div class="content" data-aos="flip-left">컨텐츠2</div>
+    <div class="content" data-aos="zoom-in-up">컨텐츠3</div>
+    <div class="scroll"></div>
+</body>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init();
+</script>
+</html>
+<!-- gsap -->

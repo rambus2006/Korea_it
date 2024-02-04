@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .trigger{
+            width:100px;
+            height:100px;
+            background: green;
+        }
+    </style>
+</head>
+<body>
+    <!-- gsap 라이브러리 
+        프론트엔드 개발자와 디자이너들이 쉽게 사용할 수 있는 아주 강력한 타임라인 기반의 애니메이션 자바스크립트 라이브러리 
+        gsap 는 css의 keyframe 과 animation 보다 더 정밀한 컨트롤을 할 수 있으면 가볍고 사용방법이 쉽다는 큰 장점이 있다. 
+     -->
+    <div class="trigger"></div>
+
+</body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script>
+    //gsap.to("타겟",{속성:속성값,....})
+    //타겟 : 애니메이션을 적용시킬 개체 
+    //속성 : 애니메이션과 관련된 속성 설정 
+    // gsap.to(".trigger",{x:300,duration:2});
+
+    //gsap.fromTo("타겟",{시작속성:시작속성값,...},{끝나는 속성: 끝나는 속성값}...)
+    //시작점과 끝나는 지점의 애니메이션을 지정한다. 
+    // gsap.fromTo(".trigger",{y:100},{duration:2,x:500,y:0});
+
+    //gsap.timeline("타겟",{속성: 속성값,...},딜레이)
+    //연속적인 애니메이션을 간편하게 설정할 수 있다. 
+    const timeline = gsap.timeline();
+    timeline.fromTo(".trigger",{y:100},{duration:2,x:500,y:0});
+    timeline.To(".trigger",{y:500,duration:2});
+    timeline.To(".trigger",{x:0,duration:2});
+    timeline.To(".trigger",{opacity:0});
+
+
+    </script>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>종합실습</title>
+</head>
+<body>
+<table
+    border="1"
+    width="50%"
+    height="200"
+    cellspacing="5">
+    <caption>요금표</caption>
+    <thead>
+        <tr align="center" bgcolor="yellow">
+            <th>구분</th>
+            <th>요금</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr align="center" bgcolor="white" id="child">
+            <td>아동</td>
+            <td>무료</td>
+        </tr>
+        <tr align="center" bgcolor="white" id="teen">
+          <td>청소년</td>
+          <td>2000</td>
+        </tr>
+        <tr align="center" bgcolor="white" id="man">
+            <td>성인</td>
+            <td>5000</td>
+          </tr>
+    </tbody>
+</table>
+    <fieldset>
+        <legend>구분</legend>
+        <input type="text" class="con"><br>
+        <button id = "btn" value="확인" onclick="confirm()">확인</button>
+    </fieldset>    
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+    globalThis.$temp;
+    const confirm = () =>{
+        let flag = false; //사용자가 클릭을 했을 때 아무것도 없으니까 false로 시작 
+        const $input = $('input');
+        const $tds = $('tbody tr td:first-child');
+        
+        if(globalThis.$temp){
+            globalThis.$temp.closest('tr').css("background-color:white")
+            globalThis.$temp.text(globalThis.$temp.text().replaceAll("֎",""))
+        }
+        $tds.each((i,id)=>{
+            const $td = $('td');
+            //사용자가 입력한 값이 같으면 기존 텍스트에 별을 넣어서 텍스트를 넣는다. 
+            if($td.text()=== $input.val()){
+                flag = true;
+                $td.text("֎" + $text())
+                globalThis.$temp = $td;
+                $td.closest('tr').css('backgronud-color',"red");
+            }
+        })
+        
+    }
+    if(!flag){
+            alert('다시 입력해주세요!')
+        }
+        $input.val("")
+
+</script>
+<style>
+    *{
+        margin: 0;
+        padding:0;
+    }
+    .table{
+        border: 3px;
+    }
+    fieldset{
+        width:400px;
+        height:100px;
+        border:2px solid gray;
+        text-align: center;
+    }
+</style>
+</html>

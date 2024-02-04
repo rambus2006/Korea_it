@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery 기초3</title>
+</head>
+<body>
+    <div class="box" style="width:100px; height:200px; background-color: pink;"></div>
+    <button type="button">변경하기</button>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+    //이벤트로 버튼을 클릭했을 때, box를 숨기기
+    // .addEventListener(어떤 이벤트, 어떻게 할지 콜백함수 )
+    // .on(event,()=>{})
+    const $button = $('button'); //태그를 가져온 것 
+    const $box = $('.box'); //클래스를 가져온 것 
+
+    $button.on("click",()=>{
+        $box.css('display','none');
+        // $box.remove();
+    })
+</script>
+</html>

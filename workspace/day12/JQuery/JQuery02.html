@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul class="car">
+        <li>페라리</li>
+        <li>롤스로이스</li>
+        <li>포르쉐</li>
+        <li>마세라티</li>
+    </ul>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+    //closeset() : 부모에서 값을 찾는다. 
+    //find() : 자식에서 값을 찾는다. 
+    //prev() : 이전 요소를 가져온다. 
+    //next() : 다음 요소를 가져온다. 
+    //eq(): 인덱스로 해당요소를 찾는다. 
+    
+    const $ul = $('ul');
+    const $list = $("li");
+    console.log($list[1]);
+
+    //ul에서 li 태그 중에 "포르쉐"랑 text 가 같은 자식을 가져오기 
+    // .each('인덱스','반복되는 요소')
+    // .text innerText 와 동일한 프로퍼티 
+    $ul.find("li").each((i,li)=>{
+        if($(li).text()==="포르쉐"){
+            console.log($(li)); 
+        }
+    });
+</script>
+</html>

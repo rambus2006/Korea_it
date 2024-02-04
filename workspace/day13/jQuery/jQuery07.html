@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>C언어</li>
+        <li>파이썬</li>
+        <li>프론트엔드</li>
+    </ul>
+    <button type="button">버튼</button>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+    const $button = $('button');
+    const $ul = $('ul')
+    //.hide() , .show(), .toggle()
+    // $ul.show()
+    // $ul.slideUp()
+
+    $button.on("click",()=>{
+        //$ul.hide()
+        //$ul.show()
+        //$ul.toggle()
+        //$ul.fadeOut(2000)
+        //$ul.fadeToggle(1000)
+        // $ul.slideDown()
+        $ul.slideToggle(1000)
+    })
+</script>
+</html>

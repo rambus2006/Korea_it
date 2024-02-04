@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery 실습</title>
+</head>
+<body>
+    <!-- input을 눌렀을 때 value 값을 result 에 보여주고, 해제가 되었을 때는 사라지게 한다.  -->
+    <div class="wrapper">
+        <label for="">
+            <input type="checkbox" value="맥라렌"><span>맥라렌</span>
+        </label>
+        <label for="">
+            <input type="checkbox" value="볼보"><span>벤츠</span>
+        </label>
+        <label for="">
+            <input type="checkbox" value="롤스로이스"><span>마세라티</span>
+        </label>
+        <p id="result"></p>
+    </div>
+    <p id="result"></p>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+    //체크박스 선택 시 해당 내용을 p 태그에 이어붙이기 
+    //선택 해제시 해당 내용이 제거된다. 
+    
+    //<해설>
+    //체크박스가 눌렀을 때 이벤트가 발생한다. 
+    //p 태그에 append()
+    //e.target.value
+    const $checkboxeds =  $("input[type='checkbox']"); //가져왔으면 출력 
+    const $result = $('#result');
+    $checkboxeds.on("click",(e)=>{
+        if(e.target.checked){
+            $result.append(`<div>${e.target.value}</div>`)
+        }else{
+            const $resultDiv = $('#result div');
+            $resultDiv.filter((i,div)=> div.innerText === e.target.value).remove();
+        }
+        // $result.append(`<div>${e.target.value}</div>`)
+    })
+    
+    //<풀이>
+    //0.3개 가져오기 
+    // const $checkbox = $("label")
+    
+    // const $p = $('p')
+    // console.log($checkbox)
+    // //1. 어떤 것이 체크되었는지 확인
+    // $checkbox.on("click",(e)=>{
+    //     //2. p 태그에 이어 붙여 html에 삽입
+    //     console.log(value)
+    // })
+
+    
+</script>
+</html>

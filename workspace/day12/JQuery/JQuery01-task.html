@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery01-task</title>
+</head>
+<body>
+    <!-- css 변경하기 -->
+    <!-- 버튼을 클릭했을 때 input의 border-color를 green 으로 변경하기 -->
+    <div class="container">
+        <div>
+            <input type="text" class="number" value="1">
+        </div>
+        <div>
+            <input type="text" class="number"  value="2">
+        </div>
+        <div>
+            <input type="text" class="number"  value="3">
+        </div>
+        <div>
+            <button onclick="green()">버튼</button>
+            <button onclick="$('.number').css('border-color','blue')">버튼2</button>
+            <button onclick="changeBorder()">JS 버튼</button>
+        </div>
+    </div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+    function green(){
+        const $button = $(".number");
+        $button.css('border-color','green')
+
+    }
+    const changeBorder = ( ) =>{
+        const inputs = document.querySelectorAll(".number");
+        inputs.forEach((input)=>{
+            input.style.borderColor = 'red'
+        })
+    }
+</script>
+</html>

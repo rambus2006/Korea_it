@@ -1,0 +1,13 @@
+*{
+    margin: 0;
+    padding:0;
+}
+.table{
+    border: 3px;
+}
+.divison{
+    width:400px;
+    height:200px;
+    border:4px solid black;
+    text-align: center;
+}

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style/style.css">
+</head>
+<body>
+    <!-- iconify 보기 -->
+    <form >
+        <label for="">
+            <input type="password" placeholder="비밀번호를 입력하세요">
+        </label>
+        <div class="mark"></div>
+    </form>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+    const $input = $("input[type='password']")
+    const $mark = $('.mark')
+
+    //console.log($input)
+    //.prop() .attr()
+    //
+    $mark.on("click",()=>{
+        const check = $input.attr('type') === 'password';
+        //삼항연산자
+        $input.attr('type', check ? 'text' : 'password')
+        $(e.target).css('background-image',`url("${check ? './image/see.png' : 'https://noticon-static.tammolo.com/dgggcrkxq/image/upload/v1706347579/noticon/m5wt8zibptyisbm94hxa.png'}")`)
+        // e.target.css('background-image',`url('${check ? 'https://noticon-static.tammolo.com/dgggcrkxq/image/upload/v1644161402/noticon/byp14ppjklohyym0dl6z.png'}')
+    })
+</script>
+</html>
+
+<!-- 
+    text image
+ -->

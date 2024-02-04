@@ -1,0 +1,18 @@
+form{
+    width:200px;
+    border:1px solid black;
+    display: flex;
+}
+input{
+    outline: none;
+    border: none;
+}
+div.mark{
+    background-image: url("https://noticon-static.tammolo.com/dgggcrkxq/image/upload/v1706347579/noticon/m5wt8zibptyisbm94hxa.png");
+    background-position:center ;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    width:40px;
+    height:40px;
+    cursor: pointer;
+}

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery 기초4</title>
+</head>
+<body>
+    <input type="text" name="name" placeholder="이름을 입력하세요" autocapitalize="none"/>
+    <p id="name"></p>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+    //input에 이름을 입력하면 그 값을 p 태그 안에 넣는다. 
+    //input 태그가 이벤트가 걸려야 한다. 
+    //input 의 value 값이 변경된 것이 확인되면 text를 p 태그 안에 넣는다. 
+    //keyup, keydown,change === onchange
+    const $input = $("input");//input[name='name']
+    const $name = $('#name');
+    $input.on("change",(e)=>{
+        $name.text(e.target.value);
+    })
+
+</script>
+</html>

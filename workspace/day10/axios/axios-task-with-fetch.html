@@ -63,8 +63,8 @@
                 <p class="content"></p>
             </li>
         </ul>
-        
     </div>
+    <div class="paging"></div>
 
 </body>
 <script>
@@ -86,14 +86,17 @@
     //3.image를 가져온다.(DOM을 가져온다.)
     //4. src접근해서 url 변경한다. 
 
+
     const listAll = document.querySelectorAll('.list');
-    console.log(listAll)
+    const paging = document.querySelector(".paging");
+    // console.log(listAll)
 
     const getPhotos = async () => {
        const response = await axios.get('https://jsonplaceholder.typicode.com/photos');
        return response.data;
     }
     
+
     getPhotos()
     .then((photos)=> photos.slice(0, 10))
     .then((photos)=>{
@@ -126,8 +129,50 @@
        return content
     }
 
+    // offset, limet
+    let page =1;
+
     getDatas()
-    .then((datas) => datas.slice(0,10))
+        .then((datas) => {
+            //data의 보여줄 카운트 수 
+            let rowCount = 10;
+            //offset이 0부터 시작하고, rowCount 만큼 곱해지면 1번페이지부터 원하는 페이지수가 나온다. 
+            let offset = (page -1) * rowCount;
+            //offset 시작과 행을 구하면 마지막 값이 나온다. 
+            let limit = offset + rowCount;
+
+            let pageCount = 5;
+            let endPage = Math.ceil(page / pageCount)*pageCount //end 페이지 구하는 것이 page를 page 개수로 나눈 것, 소수점이 필요없어서 Math 메서드를 쓴다. 
+            let startPage = (endPage - pageCount) + 1;
+
+            // 항상 마지막 페이지가 배수로 끝나지 않기 때문에 실제 endPage를 구해서 처리해야 한다. (ex: 37,38,39...)
+            let realEndPage = Math.ceil(datas.length/rowCount)
+            endPage = endPage >realEndPage ? realEndPage : endPage;
+
+            //실제 페이지가 1부터 존재하기 떄문에 마지막페이지가 0로 떨어지면 1로 넣게 한다. 
+            if(endPage === 0){
+                endPage =1;
+            }
+            //버튼의 페이징 처리 
+            let paginText = ``;
+            // 1 보다 스타트 페이지가 크면 다음 페이지를 보여주는 버튼 생성 
+            if(startPage >1 ){
+                pagingText += `<a href="">이전</a>`
+            }
+
+            //반복숫자를 돌려서 페이징 텍스트를 처리한다. 
+            for(let i = startPage;i<=endPage;i++){
+                pagingText += `<a href = ""><span>${i}</span></a>`
+            }
+
+            //endPage를 기준으로 다음버튼을 생성한다. 
+            if(endPage<realEndPage){
+                paginText += `<a href="">다음</a>`;
+            }
+            paging.innerHTML = pagingText;
+
+            return datas.slice(offset,limit);
+        } )
     .then((datas) => {
         datas.forEach((data, i, datas) => {
             listAll[i].children[1].innerText = data.title

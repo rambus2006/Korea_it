@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery 기초</title>
+</head>
+<body>
+    <!-- 제이쿼리를 이용해서 css 변경 : 버튼의 색깔을 빨간색, 폰트를 화이트 -->
+    
+    <button class="button">버튼</button>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+    const $button = $(".button");
+    // console.log($button);
+
+    //css('키값','속성값')
+    $button.css('background-color','red');
+
+</script>
+</html>

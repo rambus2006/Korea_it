@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul class="car">
+        <li>페라리</li>
+        <li>롤스로이스</li>
+        <li>포르쉐</li>
+        <li>마세라티</li>
+    </ul>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+    //prev(), next()를 이용해서 포르쉐의 형제 요소를 콘솔에 출력하기 
+    //방법1. $list[2]로 dom을 접근 
+    //방법2. $list.eq('인덱스').메서드 로 접근하는 것을 지향하자 
+
+    //1. 포르쉐를 가져온다. 
+    const $list = $('li');
+    const $ul = $('ul');
+
+    console.log($list.eq(2).next());
+    // console.log($list.eq(2).prev);
+
+    //자바스크립트는 대입 연산자를 이용해서 값을 전달하지만 제이쿼리에서는 ('값')을 전달하여 변경한다. 
+    $list.eq(2).next().text("맥라렌");
+
+    //attr :  속성값을 변경하는 메서드 
+    //attr('속성키','속성값')
+    $list.eq(0).closest("ul").attr('class','super-car');
+
+    //첫번쨰 요소를 삭제 //.first .remove()
+    //.last()
+    // console.log()
+    //첫번째 요소를 제거 
+    // $ul.find("li").first().remove();
+
+    //마지막 요소를 제거하고, 벤츠를 해봄 
+    $ul.find("li").last().remove();
+    
+    //append('') : 마지막에 요소가 추가 (마지막만 가능)
+    $ul.append("<li>벤츠</li>")
+
+    // .html() === innerHTML
+    //덮어씌우는 것 
+    $ul.html("<li>람보르기니</li>")
+
+</script>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery 기초3</title>
+</head>
+<body>
+<!-- <a href="./home">이동</a> -->
+<form action="" name="myForm">
+    <div>
+        <label>
+            전체 동의
+            <input type="checkbox" name="term1" class="all">
+        </label>
+    </div>
+    <div>
+        <label>
+            서비스 이용약관 동의
+            <input type="checkbox" name="term1" class="term">
+        </label>
+    </div>
+    <div>
+        <label>
+            광고 수신 동의
+            <input type="checkbox" name="term2" class="term">
+        </label>
+    </div>
+    <div>
+        <label>
+            개인 정보 이용약관 동의
+            <input type="checkbox" name="term3" class="term">
+        </label>
+    </div>
+  </form>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+    //attr()
+    //css
+    //prop() //프로퍼티 (js 에서 프로퍼티로 접근 )
+    // const $a = $('a');
+    // console.log($a.prop('href'))
+    // console.log($a.attr('href'))
+
+    const $all = $('.all');
+    const $terms = $('.term')
+
+    $all.prop('checked','checked')
+
+    //on(),prop()
+    //전체 동의 로직 완성하기 
+    // 전체 동의를 클릭했을 때 
+    $all.on("click",(e)=>{
+        $terms.prop("checked",e.target.checked)
+    })
+
+    //3개를 다 클릭하면 전체 동의가 바뀐다. 
+    $terms.on("click",()=>{
+        $all.prop('checked',$terms.filter(":checked").length===3)
+    })
+    // const $term = $('.term')
+    // if($all.click){
+    //     $term.prop('checked','checked')
+    // }else{
+    //     $term.prop('checked','unchecked')
+    // }   
+    
+   
+    // console.log($term)
+</script>
+</html>
