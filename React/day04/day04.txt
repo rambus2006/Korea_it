@@ -1,0 +1,42 @@
+마운트(mount)
+	페이지에 컴포넌트가 나타나는 것
+	(빈 화면에서 -> 컴포넌트 나타나는 것)
+
+	생성자(constructor): 새로운 컴포넌트를 생성할 때 마다 실행된다.
+
+	getDerivedStateFromProps: props를 state에 넣을 때 사용한다. 컴포넌트가 마운트 될 때와
+		업데이트될 때 실행된다.
+
+	render : 준비해놓은 UI를 랜더링 할 때 사용된다.
+	
+	componentDidMount : 페이지에 컴포넌트가 나타난 후 실행된다.
+
+
+업데이트(update)
+	- props 값이 변화가 있을 때
+	- state 값이 변화가 있을 때
+	- 부모 컴포넌트가 리랜더링 될 때
+	- forceUpdate()를 사용하여 강제로 랜더링을 할 때
+
+	getDerivedStateFromProps: props의 변화에 따라 state 값에도 변화를 주고 싶을 대 사용한다.
+	↓
+	shouldComponentUpdate : ture를 리턴 시 다음 라이프사이클 메소드가 계속 실행하게 해준다.
+		즉 false를 리턴할 시 작업을 중지 시킨다.
+	↓
+	render : 변화를 감지하여 리랜더링 시킨다.		
+	↓
+	getSnapshoBeforeUpdate : 컴포넌트 업데이트 직전에 실행된다.
+	↓
+	componentDidUpdate : 컴포넌트 업데이트 후 실행되는 함수
+
+
+언마운트 (unmount)
+	컴포넌트가 페이지에서 사라지는 것
+	
+	componentWillUnmount : 컴포넌트가 페이지에서 사라지기 직전에 실행된다.
+
+
+
+
+
+
